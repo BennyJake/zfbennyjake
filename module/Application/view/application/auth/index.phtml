@@ -1,0 +1,151 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+<style type="text/css">
+    @font-face {
+        font-family: 'bebasregular';
+        src: url(<?php echo $this->basepath('public/fonts/bebas_regular_macroman/BEBAS___-webfont.eot')?>);
+        src: url(<?php echo $this->basepath('public/fonts/bebas_regular_macroman/BEBAS___-webfont.eot?#iefix')?>) format('embedded-opentype'),
+        url(<?php echo $this->basepath('public/fonts/bebas_regular_macroman/BEBAS___-webfont.woff')?>) format('woff'),
+        url(<?php echo $this->basepath('public/fonts/bebas_regular_macroman/BEBAS___-webfont.ttf')?>) format('truetype'),
+        url(<?php echo $this->basepath('public/fonts/bebas_regular_macroman/BEBAS___-webfont.svg#bebasregular')?>) format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body{
+        font-family: opensans;
+    }
+    h1 {
+        font-size: 23pt;
+        font-family: bebasregular;
+        margin:0px;
+        padding:0px;
+    }
+    h2 {
+        font-size:12pt;
+        font-family: bebasregular;
+        margin-left:0;
+        margin-right:0;
+        margin-top:0;
+        margin-bottom:10pt;
+    }
+    h3 {
+        font-size: 14pt;
+        font-family: bebasregular;
+        margin-left:0;
+        margin-right:0;
+        margin-top:0;
+        margin-bottom:5pt;
+    }
+    .half{
+        width:45%;
+    }
+    .skill {
+        margin-bottom: 1em;
+        position: relative;
+    }
+    .position{
+        margin-bottom:15pt;
+    }
+    .position .summary td{
+        padding-bottom: 10pt;
+    }
+    .title-and-date td:first-child{
+        font-weight:600;
+    }
+
+    .education
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1><?php echo $this->info['firstName'].' '.$this->info['lastName'];?></h1>
+<h2><?php echo $this->info['headline']?></h2>
+<div class="about-me">
+    <h3 class="about-me-title">About Me</h3>
+    <div class="half">Objective:<br/><?php echo $this->info['summary']?></div>
+    <div class="half">Contact Info:<br/><?php echo $this->info['phone']?>
+        <?php echo $this->info['email']?><br/></div>
+</div>
+<div style="clear:both;"></div>
+<div class="education">
+    <h3>Education</h3>
+    <table>
+    <?php
+    $counter = 1;
+    foreach($this->info['educations']['values'] as $education){
+        echo $counter%2==1 ? '<tr>' : '';
+        ?>
+        <td class="half">
+        <?php
+        echo $education['schoolName'].', '.$education['startDate']['year'].' - '.$education['endDate']['year'].'<br/>';
+        echo $education['degree'].' in '.$education['fieldOfStudy'];
+        ?>
+        </td>
+    <?php
+        echo $counter%2==0 ? '<tr>' : '';
+        $counter++;
+    }
+    ?>
+    </table>
+</div>
+<div style="clear:both;"></div>
+<div class="work-experience">
+    <h3>Work Experience</h3>
+    <table class="position">
+    <?php foreach($this->info['positions']['values'] as $position){ ?>
+
+        <tr class="title-and-date">
+        <td class="half">
+        <?php
+        echo $position['title'].', '.$position['company']['name'];
+
+        if(isset($position['industry']) && !empty($position['industry'])){
+            echo ' ('.$position['industry'].')';
+        }
+?>
+        </td>
+        <td class="half">
+            <?php
+        $startMonth = DateTime::createFromFormat('!m', $position['startDate']['month']);
+        echo $startMonth->format('F').' ';
+        echo $position['startDate']['year'].' - ';
+
+        if($position['isCurrent']){
+        echo 'Now';
+        }
+        else{
+        $endMonth = DateTime::createFromFormat('!m', $position['endDate']['month']);
+        echo $endMonth->format('F').' ';
+        echo $position['endDate']['year'];
+        }
+?>
+        </td>
+        </tr>
+        <tr  class="summary">
+            <td colspan="2">
+                <?php
+                    echo $position['summary'].'<br/>';
+                ?>
+            </td>
+        </tr>
+            <?php
+    }
+    ?>
+    </table>
+</div>
+<div class="skill-chart">
+        <?php foreach($this->info['skills']['values'] as $skill){?>
+        <div class="skill" style="width:40%;background:gray;color:white;height:20px;">
+            <div class="skill-bar" style="position:absolute;left:0px;background:black;height:100%;width:<?php echo $skill['time'] * 100 / $this->info['positions']['active'] ?>%">
+                <span style="position:absolute;left:10px;overflow:visible"><?php echo $skill['skill']['name'] ?></span>
+            </div>
+        </div>
+        <?php } ?>
+</div>
+
+</div> <!-- /container -->
+<?php echo $this->inlineScript() ?>
+</body>
+</html>

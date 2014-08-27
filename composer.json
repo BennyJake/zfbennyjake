@@ -10,6 +10,7 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*",
-        "happyr/linkedin-api-client": "dev-master"
+        "happyr/linkedin-api-client": "dev-master",
+        "dino/dompdf-module": "dev-master"
     }
 }
