@@ -19,8 +19,9 @@ class AuthController extends AbstractActionController
     {
         session_start();
 
-        $linkedIn=new \HappyR\LinkedIn\LinkedIn();
+        $config = $this->getServiceLocator()->get('config');
 
+        $linkedIn=new \HappyR\LinkedIn\LinkedIn($config['linkedin']['appId'],$config['linkedin']['appSecret']);
 
         if ($linkedIn->isAuthenticated()) {
             //we know that the user is authenticated now. Start query the API

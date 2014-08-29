@@ -122,7 +122,7 @@ if ($_GET['action'] == 'revoke') {
     } else if ($_GET['demo'] == 'reporting') {
 
       // Core Reporting API Reference Demo.
-      require_once 'CoreReportingApiReference.php';
+      require_once 'coreReportingApiReference.php';
 
       $demo = new coreReportingApiReference($analytics, THIS_PAGE);
       $htmlOutput = $demo->getHtmlOutput($_GET['tableId']);

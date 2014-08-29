@@ -23,7 +23,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'adsense/AdsenseTest.php';
+require_once 'adsense/AdSenseTest.php';
 require_once 'general/GeneralTests.php';
 require_once 'tasks/AllTasksTests.php';
 require_once 'pagespeed/AllPageSpeedTests.php';
