@@ -1,0 +1,129 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+a,a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.thumbnail .caption{
+    padding: 9px 0;
+}
+
+a{
+    color:#F57F20;
+}
+
+a:hover{
+    color:#BF6D01;
+}
+
+hr.clear-section{
+    border: none;
+    border-top: 2px solid #ccc;
+    background-color: #ddd;
+    color: #ddd;
+    border-bottom: 4px solid #eee;
+    height: 1px;
+    margin:50px 0;
+}
+
+.progress{
+    height:30px;
+}
+
+.lead{
+    font-weight: 600px;
+}
+
+.statusbar-title{
+    margin-bottom:0px;
+}
+
+.progress-parent{
+    margin-bottom:0px;
+}
+
+.progress-child{
+    margin-top: 5px;
+    margin-bottom:0px;
+    height:10px;
+}
+
+.progress-child-last{
+    margin-top: 5px;
+    margin-bottom:20px;
+    height:10px;
+}
+
+.exp-child{
+    font-size:13px;
+    text-align:right;
+}
+
+.exp-parent{
+    font-weight:bold;
+    text-align:right;
+}
+
+.modal{
+    width:360px;
+    margin-left: -165px;
+}
+
+#yummy{
+    display:none;
+}
+
+.btn-warning {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #faa732;
+  *background-color: #F57F20;
+  background-image: -moz-linear-gradient(top, #F7994D, #F57F20);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F7994D), to(#F57F20));
+  background-image: -webkit-linear-gradient(top, #F7994D, #F57F20);
+  background-image: -o-linear-gradient(top, #F7994D, #F57F20);
+  background-image: linear-gradient(to bottom, #F7994D, #F57F20);
+  background-repeat: repeat-x;
+  border-color: #F57F20 #F57F20 #ad6704;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffF7994D', endColorstr='#ffF57F20', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  color: #ffffff;
+  background-color: #F57F20;
+  *background-color: #df8505;
+}
+
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #c67605 \9;
+}
+
+
+ input.error, select.error, textarea.error{
+    border-color: #B94A48;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+.checkbox.error, .radio.error, input.error , select.error, textarea.error{
+    color: #B94A48;
+}
+
+input.success, select.success, textarea.success {
+    border-color: #468847;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.checkbox.success, .radio.success, input.success, select.success, textarea.success {
+    color: #468847;
+}
